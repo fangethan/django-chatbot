@@ -1,6 +1,6 @@
 # Django Chatbot
 
-This a little AI Chat bot I am creating using Django as my python framework in my backend. HTML/CSS is my frontend 
+This a little AI Chat bot I am creating using Django as my python framework in my backend. HTML/CSS/JS is my frontend 
 
 ## Installation
 
