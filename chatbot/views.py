@@ -1,11 +1,27 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+import openai
+
+openai_api_key = "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"
+openai.api_key = openai_api_key
+
+def ask_openai(message):
+    response = openai.Completion.create(
+        model = "text-davinci-003",
+        prompt = message, 
+        max_tokens = 150,
+        n=1,
+        stop=None,
+        temperature=0.7,
+    )
+    answer = response.choices[0].text.strip()
+    return answer
 
 # Create your views here.
 def chatbot(request):
     if request.method == "POST":
         message = request.POST.get("message")
-        response = "Hi this is my response"
+        response = ask_openai(message)
         return JsonResponse({"message": message, "response": response})
 
     return render(request, "chatbot.html")
