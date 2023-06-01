@@ -1,8 +1,11 @@
+from chatbot.api_key_holder import get_openai_api_key
 from django.shortcuts import render
 from django.http import JsonResponse
 import openai
 
-openai_api_key = "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"
+# This is where you create your own api key and create a new file to store it
+# Make sure the file holding the api key is ignored to protect the api key from being insecure
+openai_api_key = get_openai_api_key()
 openai.api_key = openai_api_key
 
 def ask_openai(message):
